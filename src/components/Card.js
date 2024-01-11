@@ -1,10 +1,13 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useEffect } from "react";
-
+import * as Animatable from 'react-native-animatable';
 export default function Card({ item, navigation }) {
   useEffect(() => {}, []);
   return (
-    <View className=" px-2 py-2 mb-4 relative">
+  
+
+   
+    <Animatable.View animation="bounceInUp"  duration={1000} className=" px-2 py-2 mb-4 relative">
       <Image
         source={{
           uri: item.urlToImage
@@ -45,6 +48,6 @@ export default function Card({ item, navigation }) {
           Read More
         </Text>
       </TouchableOpacity>
-    </View>
+    </Animatable.View>
   );
 }

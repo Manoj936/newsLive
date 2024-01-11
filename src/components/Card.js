@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useEffect } from "react";
 
-export default function Card({ item, navigation, index }) {
+export default function Card({ item, navigation }) {
   useEffect(() => {}, []);
   return (
     <View className=" px-2 py-2 mb-4 relative">
@@ -28,12 +28,19 @@ export default function Card({ item, navigation, index }) {
           </Text>
         </View>
       </View>
-      <View className="absolute top-3 bg-redPrimary  p-2 rounded-md right-3">
+      <View className="absolute top-3 bg-green-700  p-2 rounded-md right-3">
         <Text className="text-white text-xs font-semibold">
           {item.source.name}
         </Text>
       </View>
-      <TouchableOpacity className="flex-row mt-2 p-2 justify-center items-center space-x-2 bg-redPrimary item-center rounded-md">
+      <TouchableOpacity
+        className="flex-row mt-2 p-2 justify-center items-center space-x-2 bg-green-700 item-center rounded-md"
+        onPress={() =>
+          navigation.navigate("Details", {
+           url: item.url
+          })
+        }
+      >
         <Text className="text-white font-bold text-xl text-center">
           Read More
         </Text>

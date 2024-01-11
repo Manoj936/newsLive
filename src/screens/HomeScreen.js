@@ -38,52 +38,50 @@ export default function HomeScreen({ navigation }) {
   };
   useEffect(() => {
     getTopHeadlines(select);
-    console.log(category);
+
   }, []);
   return (
     <>
       <SafeAreaView>
         <Header navigation={navigation} />
       </SafeAreaView>
-      <View className="flex-1 justify-center items-center">
+      <View style={{ flex: 1 }}>
+        <View className="mb-4">
+          <FlatList
+            className="mt-4 mb-4"
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={category}
+            renderItem={({ item, index }) => {
+              return (
+                <TouchableOpacity
+                  className={
+                    index === select
+                      ? "bg-redPrimary ml-2 p-2 rounded-2xl"
+                      : "bg-slate-400 ml-2 p-2 rounded-2xl"
+                  }
+                  onPress={() => {
+                    setSelect(index);
+                    getTopHeadlines(index);
+                  }}
+                >
+                  <Text className="text-white font-xl font-bold">
+                    {item.name}{" "}
+                  </Text>
+                </TouchableOpacity>
+              );
+            }}
+          />
+        </View>
         {isLoading ? (
-          <ActivityIndicator color={"#db393c"} size={48} />
+          <ActivityIndicator className="flex-1 items-center justify-center" color={"#db393c"} size={48} />
         ) : (
-          <View>
-            <View className="mb-5">
-              <FlatList
-                className="mt-4 mb-4"
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                data={category}
-                renderItem={({ item, index }) => {
-                  return (
-                    <TouchableOpacity
-                      className={
-                        index === select
-                          ? "bg-redPrimary ml-2 p-3 rounded-2xl"
-                          : "bg-slate-400 ml-2 p-3 rounded-2xl"
-                      }
-                      onPress={() => {
-                        setSelect(index);
-                        getTopHeadlines(index);
-                      }}
-                    >
-                      <Text className="text-white top-[-3px] text-md">
-                        {item.name}{" "}
-                      </Text>
-                    </TouchableOpacity>
-                  );
-                }}
-              />
-              <FlatList
-                data={headLines}
-                renderItem={({ item, index }) => {
-                  return <Card item={item} />;
-                }}
-              />
-            </View>
-          </View>
+          <FlatList
+            data={headLines}
+            renderItem={({ item, index }) => {
+              return <Card item={item} navigation={navigation} />;
+            }}
+          />
         )}
       </View>
     </>

@@ -8,8 +8,8 @@ const SplashScreen = ({ navigation }) => {
     }, 2000);
   }, []);
   return (
-    <View className="flex-1 justify-center items-center bg-redPrimary">
-      <Animatable.Text className="text-4xl font-bold text-white" animation="fadeInDownBig" duration={2000}>NewsLive</Animatable.Text>
+    <View className="flex-1 justify-center items-center bg-green-700">
+      <Animatable.Text className="text-4xl font-bold text-white" animation="fadeInDownBig" duration={2000}>Journal</Animatable.Text>
     </View>
   );
 };

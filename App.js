@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import SplashScreen from "./src/screens/SplashScreen";
 import SearchScreen from "./src/screens/SearchScreen";
+import NewsDetailsScreen from "./src/screens/NewsDetailsScreen";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Stack.Screen name="Splash" component={SplashScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Search" component={SearchScreen} />
+          <Stack.Screen name="Details" component={NewsDetailsScreen} />
         </Stack.Navigator>
        
       </NavigationContainer>

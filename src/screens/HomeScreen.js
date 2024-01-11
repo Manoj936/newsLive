@@ -65,7 +65,7 @@ export default function HomeScreen({ navigation }) {
                     getTopHeadlines(index);
                   }}
                 >
-                  <Text className="text-white font-xl font-bold">
+                  <Text className="text-white text-l font-bold">
                     {item.name}{" "}
                   </Text>
                 </TouchableOpacity>
@@ -74,7 +74,7 @@ export default function HomeScreen({ navigation }) {
           />
         </View>
         {isLoading ? (
-          <ActivityIndicator className="flex-1 items-center justify-center" color={"#db393c"} size={48} />
+          <ActivityIndicator className="flex-1 items-center justify-center" color={"#238636"} size={48} />
         ) : (
           <FlatList
             data={headLines}

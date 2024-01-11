@@ -5,5 +5,6 @@ export default function NewsDetailsScreen({navigation, route}) {
 
     const {url} = route.params;
 
-    return <WebView source={{ uri: url}} style={{ flex: 1 }} />;
+    return <WebView source={{ uri: url}} style={{ flex: 1 }}  javaScriptEnabled={true}
+    startInLoadingState={true}/>;
 }

@@ -20,7 +20,7 @@ export default function Card({ item, navigation }) {
           {item.description}
         </Text>
         <View className="flex-row justify-between">
-          <Text className="text-left text-xs font-semibold text-gray-500">
+          <Text className="text-left text-xs -semibold text-gray-500">
             {item.author}
           </Text>
           <Text className="text-left text-xs font-semibold text-gray-500">
